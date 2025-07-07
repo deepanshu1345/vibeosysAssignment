@@ -25,11 +25,11 @@ class Products(Base):
     __tablename__ = "products"
     product_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String(100), nullable=False)
-    category = Column(Enum(Category), nullable=False)  # fix: now enum not string
+    category = Column(Enum(Category), nullable=False)
     description = Column(String(250))
-    products_img = Column(String)  # fix: lowercase and match schema
+    products_img = Column(String)
     sku = Column(String(100), unique=True)
-    unit_of_measurement = Column(Enum(UOM), nullable=False)  # fix: match schema
+    unit_of_measurement = Column(Enum(UOM), nullable=False)
     lead_time = Column(Integer)
     create_date = Column(TIMESTAMP, server_default=func.now())
     update_date = Column(TIMESTAMP, server_default=func.now(), onupdate=func.now())
